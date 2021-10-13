@@ -11,7 +11,7 @@ import retrofit2.http.Query
 
 interface WeatherApi {
 
-    @GET("/weather")
+    @GET("data/2.5/weather")
     suspend fun getWeather( //suspend - значит можно остановить
         @Query("q") cityName: String,
         @Query("appid") appId: String = "77f04c24400418f18b935291932c4dfc",

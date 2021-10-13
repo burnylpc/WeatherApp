@@ -4,16 +4,17 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.feature.feature_weather_screen.domain.WeatherInteractor
+import com.example.myapplication.feature.feature_weather_screen.domain.model.WeatherDomainModel
 import kotlinx.coroutines.launch
 
-class WeatherScreenViewModel(private val interactor: WeatherInteractor) : ViewModel() {
+class WeatherScreenViewModel(private val weatherInteractor: WeatherInteractor) : ViewModel() {
 
-    val liveData : MutableLiveData<String> = MutableLiveData("")
+    val lifeData : MutableLiveData<WeatherDomainModel> = MutableLiveData()
 
     fun requestWeather() {
 
         viewModelScope.launch {
-            liveData.postValue(interactor.getWeather())
+            lifeData.postValue(weatherInteractor.getWeather())
         }
 
     }
