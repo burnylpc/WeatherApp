@@ -3,11 +3,9 @@ package com.example.myapplication
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
-import android.widget.TextView
 import com.example.myapplication.feature.feature_weather_screen.ui.WeatherScreenActivity
-import com.example.myapplication.feature.feature_weather_screen.ui.WeatherScreenViewModel
+import com.example.myapplication.feature.feature_weather_screen.ui.WindScreenActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,10 +13,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main) //метод устанавливает вёрстку, соответствующий файл xml
 
-        val weatherButton = findViewById<Button>(R.id.weatherButton2)
+        val weatherButton = findViewById<Button>(R.id.weatherButton)
         weatherButton.setOnClickListener{
             Intent(this,  WeatherScreenActivity::class.java).also { startActivity(it) }
 
+        }
+
+        val windButton = findViewById<Button>(R.id.windButton)
+        windButton.setOnClickListener{
+            Intent(this, WindScreenActivity::class.java).also { startActivity(it) }
         }
 
 

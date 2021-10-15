@@ -18,5 +18,4 @@ interface WeatherApi {
         @Query("units") units: String = "metric"
     ): WeatherModel
 
-
 }

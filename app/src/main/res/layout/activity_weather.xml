@@ -7,11 +7,68 @@
 
     <TextView
         android:id="@+id/tvTemperature"
-        android:layout_width="112dp"
-        android:layout_height="42dp"
-        android:text="TextView"
+        android:layout_width="130dp"
+        android:layout_height="35dp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.402"
+        app:layout_constraintStart_toEndOf="@+id/tvTemperatureText"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.26" />
+
+    <TextView
+        android:id="@+id/tvTemperatureText"
+        android:layout_width="130dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="180dp"
+        android:text="@string/tvTemperatureText"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTempMinText"
+        android:layout_width="130dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="24dp"
+        android:text="Min:"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTemperatureText" />
+
+    <TextView
+        android:id="@+id/tvTempMaxText"
+        android:layout_width="130dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="24dp"
+        android:text="Max:"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTempMinText" />
+
+    <TextView
+        android:id="@+id/tvTempMin"
+        android:layout_width="130dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/tvTempMinText"
+        app:layout_constraintTop_toBottomOf="@+id/tvTemperature" />
+
+    <TextView
+        android:id="@+id/tvTempMax"
+        android:layout_width="130dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="24dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.169"
+        app:layout_constraintStart_toEndOf="@+id/tvTempMaxText"
+        app:layout_constraintTop_toBottomOf="@+id/tvTempMin" />
 </androidx.constraintlayout.widget.ConstraintLayout>

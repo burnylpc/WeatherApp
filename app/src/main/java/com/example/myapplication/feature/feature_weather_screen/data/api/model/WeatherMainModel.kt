@@ -9,13 +9,29 @@ data class WeatherMainModel(
     val tempMin: String,
     @SerializedName("temp_max")
     val tempMax: String
-) {
-// "main": {
-//        "temp": 282.55,
-//        "feels_like": 281.86,
-//        "temp_min": 280.37,
-//        "temp_max": 284.26,
-//        "pressure": 1023,
-//        "humidity": 100
-//    },
-}
+)
+
+
+
+//"wind": {
+//    "speed": 1.5,
+//    "deg": 350
+//},
+
+//"weather": [
+//{
+//    "id": 800,
+//    "main": "Clear",
+//    "description": "clear sky",
+//    "icon": "01d"
+//}
+//],
+//"base": "stations",
+//"main": {
+//    "temp": 282.55,
+//    "feels_like": 281.86,
+//    "temp_min": 280.37,
+//    "temp_max": 284.26,
+//    "pressure": 1023,
+//    "humidity": 100
+//},}

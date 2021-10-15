@@ -23,7 +23,9 @@ class WeatherScreenActivity() : AppCompatActivity() { //почему это до
 
     private fun render(state: WeatherDomainModel) {
         findViewById<TextView>(R.id.tvTemperature).let { it.text = state.temperature }
+        findViewById<TextView>(R.id.tvTempMax).let { it.text = state.tempMax }
+        findViewById<TextView>(R.id.tvTempMin).let { it.text = state.tempMin }
+
     }
 
 }
-///запрос города , мин и макс//
