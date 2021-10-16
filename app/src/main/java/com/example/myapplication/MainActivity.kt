@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.example.myapplication.feature.feature_weather_screen.ui.WeatherScreenActivity
-import com.example.myapplication.feature.feature_weather_screen.ui.WindScreenActivity
+import com.example.myapplication.feature.feature_wind_screen.ui.WindScreenActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,33 +18,6 @@ class MainActivity : AppCompatActivity() {
             Intent(this,  WeatherScreenActivity::class.java).also { startActivity(it) }
 
         }
-
-        val windButton = findViewById<Button>(R.id.windButton)
-        windButton.setOnClickListener{
-            Intent(this, WindScreenActivity::class.java).also { startActivity(it) }
-        }
-
-
-
-        //weatherButton.setOnClickListener()
-
-//        val textView = findViewById<TextView>(R.id.textView) //нашли по id с помощью генерируемого класса R (реестр имен?)
-//        textView.text = "Погода:" //все, что есть в верстке игнорируется и устанавливается программно
-//
-//        textView.text = presenter.gerTemperature()
-//
-//
-//
-//        val list = listOf(1, 2, 3, 3, 4, 5)
-//
-//        val filter = list.filter { it >= 3 }
-//
-//        Log.d("TAB", "$filter") //что за Log? d?
-//
-//        filter.let { list -> textView.text = list.toString() }
-
-
-
 
     }
 

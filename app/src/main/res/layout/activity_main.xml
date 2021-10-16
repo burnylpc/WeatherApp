@@ -28,13 +28,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/windButton"
-        android:layout_width="105dp"
-        android:layout_height="47dp"
-        android:layout_marginBottom="56dp"
-        android:text="Wind"
-        app:layout_constraintBottom_toTopOf="@+id/weatherButton"
-        app:layout_constraintEnd_toEndOf="@+id/weatherButton"
-        app:layout_constraintStart_toStartOf="@+id/weatherButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

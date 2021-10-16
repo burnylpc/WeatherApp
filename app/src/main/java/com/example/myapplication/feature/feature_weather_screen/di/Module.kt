@@ -1,13 +1,11 @@
 package com.example.myapplication.feature.feature_weather_screen.di
 
-import androidx.lifecycle.ViewModel
 import com.example.myapplication.feature.feature_weather_screen.data.api.WeatherApi
 import com.example.myapplication.feature.feature_weather_screen.data.api.WeatherRemoteSource
 import com.example.myapplication.feature.feature_weather_screen.data.api.WeatherRepo
 import com.example.myapplication.feature.feature_weather_screen.data.api.WeatherRepoImpl
 import com.example.myapplication.feature.feature_weather_screen.domain.WeatherInteractor
 import com.example.myapplication.feature.feature_weather_screen.ui.WeatherScreenViewModel
-import com.example.myapplication.feature.feature_weather_screen.ui.WindScreenActivity
 import okhttp3.OkHttpClient
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
