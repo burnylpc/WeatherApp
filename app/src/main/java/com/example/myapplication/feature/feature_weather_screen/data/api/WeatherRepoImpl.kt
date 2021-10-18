@@ -5,8 +5,8 @@ import com.example.myapplication.feature.feature_weather_screen.domain.model.Wea
 
 class WeatherRepoImpl(private val source: WeatherRemoteSource) : WeatherRepo {
 
-    override suspend fun getWeather(): WeatherDomainModel {
-        return source.getWeather().toDomain()
+    override suspend fun getWeather(cityName: String): WeatherDomainModel {
+        return source.getWeather(cityName).toDomain()
     }
 
 }

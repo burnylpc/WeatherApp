@@ -4,8 +4,8 @@ import com.example.myapplication.feature.feature_weather_screen.data.api.model.W
 
 class WeatherRemoteSource(private val api: WeatherApi) {
 
-    suspend fun getWeather(): WeatherModel {
-        return api.getWeather("Moscow")
+    suspend fun getWeather(cityName: String): WeatherModel {
+        return api.getWeather(cityName)
     }
 
 }

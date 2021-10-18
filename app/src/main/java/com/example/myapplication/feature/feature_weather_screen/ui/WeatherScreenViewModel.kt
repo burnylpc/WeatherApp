@@ -11,10 +11,10 @@ class WeatherScreenViewModel(private val weatherInteractor: WeatherInteractor) :
 
     val lifeData : MutableLiveData<WeatherDomainModel> = MutableLiveData()
 
-    fun requestWeather() {
+    fun requestWeather(cityName: String) {
 
         viewModelScope.launch {
-            lifeData.postValue(weatherInteractor.getWeather())
+            lifeData.postValue(weatherInteractor.getWeather(cityName))
         }
 
     }

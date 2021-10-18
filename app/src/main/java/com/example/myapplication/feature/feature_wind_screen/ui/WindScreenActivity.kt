@@ -13,11 +13,13 @@ class WindScreenActivity : AppCompatActivity() { //почему это доба�
 
     val weatherScreenViewModel by viewModel<WeatherScreenViewModel>()
 
+    val cityName = "Moscow"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wind)
         //weatherScreenViewModel.lifeData.observe(this, Observer(::render))
-        weatherScreenViewModel.requestWeather()
+        weatherScreenViewModel.requestWeather(cityName)
 
 
     }

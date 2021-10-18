@@ -9,8 +9,9 @@ fun WeatherModel.toDomain(): WeatherDomainModel{
     return WeatherDomainModel(
         this.main.temp,
         this.main.tempMax,
-        this.main.tempMin
+        this.main.tempMin,
+        wind.toDomain()
     )
 }
 
-fun WeatherSpeedModel.toDomain() = WeatherWindDomainModel(speedWind = speed)
+fun WeatherSpeedModel.toDomain() = WeatherWindDomainModel(speed , degree)

@@ -5,8 +5,8 @@ import com.example.myapplication.feature.feature_weather_screen.domain.model.Wea
 
 class WeatherInteractor(private val repository: WeatherRepo) {
 
-    suspend fun getWeather() : WeatherDomainModel {
-        return repository.getWeather()
+    suspend fun getWeather(cityName: String) : WeatherDomainModel {
+        return repository.getWeather(cityName)
     }
 
 }
