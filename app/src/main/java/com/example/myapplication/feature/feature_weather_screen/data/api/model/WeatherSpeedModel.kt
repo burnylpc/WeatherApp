@@ -6,7 +6,7 @@ data class WeatherSpeedModel (
     @SerializedName("speed")
     val speed: Double,
     @SerializedName("degree")
-    val degree: Int
+    val degree: Double
 )
 
 //"wind": {

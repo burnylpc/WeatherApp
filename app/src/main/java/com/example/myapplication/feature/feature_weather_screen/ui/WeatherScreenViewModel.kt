@@ -14,7 +14,12 @@ class WeatherScreenViewModel(private val weatherInteractor: WeatherInteractor) :
     fun requestWeather(cityName: String) {
 
         viewModelScope.launch {
-            lifeData.postValue(weatherInteractor.getWeather(cityName))
+            try {
+                val result =  weatherInteractor.getWeather(cityName)
+                lifeData.postValue(result)
+            } catch (e: Exception){
+                e
+            }
         }
 
     }

@@ -1,31 +1,24 @@
 package com.example.myapplication.feature.feature_wind_screen.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.myapplication.R
-import com.example.myapplication.feature.feature_weather_screen.domain.model.WeatherWindDomainModel
-import com.example.myapplication.feature.feature_weather_screen.ui.WeatherScreenViewModel
-import org.koin.android.viewmodel.ext.android.viewModel
+import com.example.myapplication.databinding.ActivityWindBinding
 
-class WindScreenActivity : AppCompatActivity() { //почему это добавили в манифест?
+class WindScreenActivity : AppCompatActivity() {
 
-    val weatherScreenViewModel by viewModel<WeatherScreenViewModel>()
+    private val binding: ActivityWindBinding by viewBinding(ActivityWindBinding::bind)
 
-    val cityName = "Moscow"
-
+    @SuppressLint("StringFormatMatches")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wind)
-        //weatherScreenViewModel.lifeData.observe(this, Observer(::render))
-        weatherScreenViewModel.requestWeather(cityName)
-
-
-    }
-
-    private fun render(state: WeatherWindDomainModel) {
-        findViewById<TextView>(R.id.tvWind).let { it.text = state.speedWind.toString() }
+        val speed= intent.extras?.get("speed")
+        val degree = intent.extras?.get("degree")
+        binding.tvWind.text = speed.toString()
+        binding.tvDegree.text = degree.toString()
     }
 
 }

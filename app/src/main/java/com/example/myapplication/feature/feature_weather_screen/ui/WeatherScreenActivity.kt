@@ -2,30 +2,38 @@ package com.example.myapplication.feature.feature_weather_screen.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.Button
-import android.widget.TextView
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
-import com.example.myapplication.R
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.myapplication.feature.feature_weather_screen.domain.model.WeatherDomainModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import com.example.myapplication.R
+import com.example.myapplication.databinding.ActivityWeatherBinding
 import com.example.myapplication.feature.feature_wind_screen.ui.WindScreenActivity
-import org.koin.android.viewmodel.ext.android.viewModel
+import com.example.myapplication.ulil.setDebouncingTextListener
 
+class WeatherScreenActivity() : AppCompatActivity() {
 
+    val weatherScreenViewModel by viewModel<WeatherScreenViewModel>()
 
-class WeatherScreenActivity() : AppCompatActivity() { //почему это добавили в манифест?
+    private val binding: ActivityWeatherBinding by viewBinding(ActivityWeatherBinding::bind)
 
-    private val weatherScreenViewModel by viewModel<WeatherScreenViewModel>()
     private var speed: Double = 0.0
-    private var degree: Int = 0
-    private val cityName = "Moscow"//R.id.tvCityName
-
+    private var degree: Double = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_weather)
-        weatherScreenViewModel.lifeData.observe(this, Observer(::render))
-        weatherScreenViewModel.requestWeather(cityName)
+        weatherScreenViewModel.lifeData.observe(this, ::renderWeather)
+
+        weatherScreenViewModel.requestWeather("Moscow")
+
+        val cityEditText = findViewById<EditText>(R.id.tvCityName)
+
+        cityEditText.setDebouncingTextListener { weatherScreenViewModel.requestWeather(it) }
 
         val windButton = findViewById<Button>(R.id.windButton)
         windButton.setOnClickListener {
@@ -36,14 +44,14 @@ class WeatherScreenActivity() : AppCompatActivity() { //почему это до
         }
     }
 
-    private fun render(state: WeatherDomainModel) {
-        findViewById<TextView>(R.id.tvTemperature).let { it.text = state.temperature.toString() }
-        findViewById<TextView>(R.id.tvTempMax).let { it.text = state.tempMax.toString() }
-        findViewById<TextView>(R.id.tvTempMin).let { it.text = state.tempMin.toString() }
-        speed = state.wind.speedWind
-        degree = state.wind.degree
+    private fun renderWeather(state: WeatherDomainModel) {
+        with(binding) {
+            tvTemperature.text = state.temperature.toString()
+            tvTempMax.text = state.tempMax.toString()
+            tvTempMin.text = state.tempMin.toString()
+            speed = state.wind.speedWind
+            degree = state.wind.degree
+        }
     }
-
-//https://github.com/skull615d/weather
 
 }
