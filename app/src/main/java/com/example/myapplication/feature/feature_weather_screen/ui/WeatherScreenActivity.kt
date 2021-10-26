@@ -2,8 +2,6 @@ package com.example.myapplication.feature.feature_weather_screen.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
@@ -13,7 +11,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityWeatherBinding
 import com.example.myapplication.feature.feature_wind_screen.ui.WindScreenActivity
-import com.example.myapplication.ulil.setDebouncingTextListener
+import com.example.myapplication.util.setDebouncingTextListener
 
 class WeatherScreenActivity() : AppCompatActivity() {
 
@@ -37,7 +35,7 @@ class WeatherScreenActivity() : AppCompatActivity() {
 
         val windButton = findViewById<Button>(R.id.windButton)
         windButton.setOnClickListener {
-            val intent = Intent(this, WindScreenActivity::class.java)//.also { startActivity(it) }
+            val intent = Intent(this, WindScreenActivity::class.java)
             intent.putExtra("speed", speed)
             intent.putExtra("degree", degree)
             startActivity(intent)
