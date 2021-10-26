@@ -27,7 +27,7 @@ class WeatherScreenActivity() : AppCompatActivity() {
         setContentView(R.layout.activity_weather)
         weatherScreenViewModel.lifeData.observe(this, ::renderWeather)
 
-        weatherScreenViewModel.requestWeather("Moscow")
+        weatherScreenViewModel.requestWeather("Minsk")
 
         val cityEditText = findViewById<EditText>(R.id.tvCityName)
 
